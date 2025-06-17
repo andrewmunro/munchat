@@ -18,38 +18,32 @@ export default function TabLayout() {
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-				// Disable the static render of the header on web
-				// to prevent a hydration error in React Navigation v6.
+				tabBarActiveTintColor: "#5865f2",
+				tabBarInactiveTintColor: "#72767d",
+				tabBarStyle: {
+					backgroundColor: "#2f3136",
+					borderTopColor: "#202225",
+				},
+				headerStyle: {
+					backgroundColor: "#2f3136",
+				},
+				headerTintColor: "#dcddde",
 				headerShown: useClientOnlyValue(false, true),
 			}}
 		>
 			<Tabs.Screen
 				name="index"
 				options={{
-					title: "Tab One",
-					tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-					headerRight: () => (
-						<Link href="/modal" asChild>
-							<Pressable>
-								{({ pressed }) => (
-									<FontAwesome
-										name="info-circle"
-										size={25}
-										color={Colors[colorScheme ?? "light"].text}
-										style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-									/>
-								)}
-							</Pressable>
-						</Link>
-					),
+					title: "Messages",
+					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+					headerTitle: "Messages",
 				}}
 			/>
 			<Tabs.Screen
 				name="two"
 				options={{
-					title: "Tab Two",
-					tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+					title: "You",
+					tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
 				}}
 			/>
 		</Tabs>
