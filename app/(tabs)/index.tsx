@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { useRouter } from "expo-router";
 import ChatList from "@/components/chat/ChatList";
 import SearchBar from "@/components/chat/SearchBar";
 import { ChatData } from "@/components/chat/ChatItem";
@@ -90,8 +91,10 @@ const mockChats: ChatData[] = [
 ];
 
 export default function HomeScreen() {
+	const router = useRouter();
+
 	const handleChatPress = (chatId: string) => {
-		console.log("Chat pressed:", chatId);
+		router.push(`/chat/${chatId}`);
 	};
 
 	const handleSearch = (text: string) => {
